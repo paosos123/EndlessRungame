@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7159941551709597194}
   - component: {fileID: 6772317496437568774}
   - component: {fileID: 3693515454479383840}
-  - component: {fileID: 2395518378978225314}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Untagged
@@ -152,17 +151,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damages: 20
-  character: {fileID: 0}
---- !u!114 &2395518378978225314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913642959217181466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b8a14304fc64c498fae32f48928b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   character: {fileID: 0}

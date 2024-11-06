@@ -5,19 +5,19 @@ using UnityEngine;
 public class Everythingmove : MonoBehaviour
 {
     private float speed = 5f; // ความเร็วในการเคลื่อนที่ของฉากหลัง
-    [SerializeField]private Character character;
+    [SerializeField] protected Character character;
    
     void Update()
     {
-        if (!character.IsDead())
-        {
-            Move();
-        }
-
+       Move();
     }
 
-    void Move()
+    protected  void Move()
     {
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+        if (!character.IsDead())
+        {
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+        }
+       
     }
 }

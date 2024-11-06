@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Trap : Everythingmove
+using UnityEngine.UI;
+public class Augments :  Everythingmove
 {
-    [SerializeField]private int damages = 20;
-
-  
+    private bool hitPlayer= false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +20,16 @@ public class Trap : Everythingmove
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Damage(damages);
-            Destroy(gameObject);
+            hitPlayer = true;
         }
-        
     }
-    public void Damage(float damagePoints)
+
+    void ShowUISelectAugment(bool hit)
     {
-        if (character.health > 0)
-            character.health -= damagePoints;
+        if (hit)
+        {
+            
+        }
     }
+   
 }

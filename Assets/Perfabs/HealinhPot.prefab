@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 909375494215372353}
   - component: {fileID: 3188413459090623218}
   - component: {fileID: 1210906234774307216}
-  - component: {fileID: 6647871159130511032}
   - component: {fileID: 621904767225739346}
   m_Layer: 0
   m_Name: HealinhPot
@@ -126,19 +125,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &6647871159130511032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6317414961653008472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b8a14304fc64c498fae32f48928b87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 0}
 --- !u!114 &621904767225739346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,5 +137,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 894cb8b4b3576764baaa8366a42bc513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healingPoints: 20
   character: {fileID: 0}
+  healingPoints: 20
