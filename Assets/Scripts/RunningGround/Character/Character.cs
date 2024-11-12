@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
     [SerializeField] private float damagePerSecond = 10f;
     [SerializeField] private Image healthBar;
     public float health, maxHealth = 100;
-    
+   
     // Start is called before the first frame update
     void Start()
     {
