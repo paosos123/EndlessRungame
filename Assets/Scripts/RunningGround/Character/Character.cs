@@ -39,12 +39,7 @@ public class Character : MonoBehaviour
         }
         HealthGreatermoreOrLessthanMaxHealth();
         HealthBarFiller();
-        GamePause();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Space key pressed!");
-            Time.timeScale = 0;
-        }
+       
     }
 
     //Input Action
@@ -118,15 +113,5 @@ public class Character : MonoBehaviour
         return health <= 0;
     }
 
-    void GamePause()
-    {
-        if (IsDead())
-        {
-            Time.timeScale = 0;
-        }
-        else if(!IsDead())
-        {
-            Time.timeScale = 1;
-        }
-    }
+    
 }
