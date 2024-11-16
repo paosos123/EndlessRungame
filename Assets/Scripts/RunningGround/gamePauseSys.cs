@@ -16,19 +16,26 @@ public class gamePauseSys : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (character.IsDead() || augmentsScreen.activeSelf)
+        {
+            isPause = true;
+        }
+        else
+        {
+            isPause = false;
+        }
         GamePause();
     }
     void GamePause()
     {
        
-        if (character.IsDead()||augmentsScreen.activeSelf)
+        if (isPause)
         {
            
             Time.timeScale = 0;
         }
         else
         {
-           
             Time.timeScale = 1;
         }
     }

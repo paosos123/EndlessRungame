@@ -13,14 +13,16 @@ public class Character : MonoBehaviour
     private bool groundCheck;
     public float jumpForce = 10f;
 
-    private int doubleJump;
+   [SerializeField] private int jumpCount = 0;
+    private int maxJumpCount = 2;
 
     //Health
     [SerializeField] private float damagePerSecond = 10f;
     [SerializeField] private Image healthBar;
     public float health, maxHealth = 100;
-   
+    
     // Start is called before the first frame update
+    [SerializeField] private gamePauseSys gamePauseSys;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,36 +33,43 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsDead())
+        if (!gamePauseSys.isPause)
         {
-            Jump();
             Slide();
-            TakeDamageEverySecond();
+            //TakeDamageEverySecond();
         }
         HealthGreatermoreOrLessthanMaxHealth();
         HealthBarFiller();
        
     }
 
+    
     //Input Action
-    void Jump()
+    public  void Jump(InputAction.CallbackContext context)
     {
+        
+        /*if (playerInput.actions["Jump"].IsPressed() && jumpCount < maxJumpCount)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            //rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
 
-        if (playerInput.actions["Jump"].triggered && doubleJump > 0)
+        if (playerInput.actions["Jump"].triggered)
         {
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            doubleJump -= 1;
-        }
-        if (groundCheck)
-        {
-            doubleJump = 1;
-        }
+            jumpCount++;
+        }*/
+       if(context.performed && jumpCount < maxJumpCount &&!gamePauseSys.isPause)
+       {
+           rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+           jumpCount++;
+       }
     }
 
     void Slide()
     {
         if (playerInput.actions["Slide"].IsPressed())
         {
+            Debug.Log("Silder");
             if (!groundCheck)
             {
                 rb.AddForce(Vector2.down * 4, ForceMode2D.Impulse);
@@ -73,6 +82,7 @@ public class Character : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             groundCheck = true;
+            jumpCount = 0;
         }
     }
 

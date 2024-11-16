@@ -38,6 +38,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c985c6fe-f043-4322-a7f5-7bb2afe067f9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8cf7b8f3-9fdb-4c14-9c36-41136f5e03fe",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
