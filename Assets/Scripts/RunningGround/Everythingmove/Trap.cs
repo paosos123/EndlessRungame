@@ -10,12 +10,13 @@ public class Trap : Everythingmove
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         Move();
     }
     void OnTriggerEnter2D(Collider2D other)

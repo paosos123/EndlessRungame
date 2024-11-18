@@ -10,7 +10,7 @@ public class Healthfillingpot : Everythingmove
     // Start is called before the first frame update
     void Start()
     {
-       
+        FindPlayer();
     }
 
     // Update is called once per frame

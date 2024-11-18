@@ -31,18 +31,20 @@ public class Augments :  Everythingmove
             inputList[rand] = temp;
         }
     }
-    [SerializeField]private List<int> randomList = new List<int>();
+   private List<int> randomList = new List<int>();
     // Start is called before the first frame update
     void Start()
     {
+        FindPlayer();
         randomList = GetUniqueRandomElements(listAugment, 3);
-       OnClick(0,randomList[0]);
+        OnClick(0,randomList[0]);
        OnClick(1,randomList[1]);
        OnClick(2,randomList[2]);
     }
     // Update is called once per frame
     void Update()
     {
+       
         Move();
         
     }
