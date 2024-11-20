@@ -20,10 +20,9 @@ public class Everythingmove : MonoBehaviour
 
     protected  void Move()
     {
-        if (!character.IsDead())
-        {
+        
             transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
+        
     }
 
     protected void FindPlayer()

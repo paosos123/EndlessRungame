@@ -6,6 +6,7 @@ public class gamePauseSys : MonoBehaviour
 {
     [SerializeField]private Character character;
     [SerializeField]private GameObject augmentsScreen;
+    [SerializeField]private GameObject PaussScreen;
     public bool isPause = false; 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class gamePauseSys : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (character.IsDead() || augmentsScreen.activeSelf)
+        if (character.IsDead() || augmentsScreen.activeSelf || PaussScreen.activeSelf)
         {
             isPause = true;
         }
