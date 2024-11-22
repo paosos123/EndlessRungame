@@ -4,14 +4,14 @@ using UnityEngine;
 using TMPro;
 public class ScoreManager : MonoBehaviour
 {
-    public int score = 0;
+    public  static  int score = 0;
     public float incrementInterval = 1f; // Seconds between score increments
     public TMP_Text scoreText;
     private float timer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        score = 0;
     }
 
     // Update is called once per frame

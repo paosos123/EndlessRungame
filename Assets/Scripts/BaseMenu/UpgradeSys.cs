@@ -26,6 +26,7 @@ public class UpgradeSys : MonoBehaviour
            if (Physics2D.OverlapPoint(touchpos) == rock.GetComponent<Collider2D>())
            {
                Debug.Log("You touched the rock!");
+               Character.upgradeHealth = 10;
            }
            else
            {

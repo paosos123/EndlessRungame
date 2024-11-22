@@ -21,8 +21,10 @@ public class Character : MonoBehaviour
     [Header("Health")]
     //Health
     [SerializeField] private float damagePerSecond = 10f;
+    
     [SerializeField] private Image healthBar;
-    public float health, maxHealth = 100;
+    public  static float upgradeHealth = 0;
+    public float health, maxHealth = 100   ;
     [Header("GamePause")]
     // Start is called before the first frame update
     [SerializeField] private gamePauseSys gamePauseSys;
@@ -33,9 +35,11 @@ public class Character : MonoBehaviour
     [SerializeField] private float fallSpeedMultiplier = 2f;
     
 
-    
+
     void Start()
     {
+        maxHealth = 100 + upgradeHealth;
+        Debug.Log(maxHealth);
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         health = maxHealth;

@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RunningGroundTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/LeaderboardCreator/Scenes/DemoScene.unity
+    guid: a864ccbe3a968094ba55cfc99b8c4bc3
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
