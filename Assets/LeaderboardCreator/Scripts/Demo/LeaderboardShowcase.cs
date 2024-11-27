@@ -3,9 +3,14 @@ using Dan.Main;
 using Dan.Models;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+//using UnityEngine.SocialPlatforms.Impl;
+
 
 namespace Dan.Demo
 {
+   
     public class LeaderboardShowcase : MonoBehaviour
     {
         [Header("Gameplay:")]
@@ -25,14 +30,16 @@ namespace Dan.Demo
         [Header("Personal Entry:")]
         [SerializeField] private RectTransform _personalEntryPanel;
         [SerializeField] private TextMeshProUGUI _personalEntryText;
-
-        private int _playerScore;
+        
+            
+        public  static int _playerScore  ;
+       
         
         private Coroutine _personalEntryMoveCoroutine;
-
+        
         public void AddPlayerScore()
-        {
-            _playerScore++;
+        { 
+           // _playerScore++;
             _playerScoreText.text = $"Your score: {_playerScore}";
         }
         
@@ -150,8 +157,10 @@ namespace Dan.Demo
         {
             InitializeComponents();
             Load();
+            AddPlayerScore();
         }
-
+        
+       
         public void Submit()
         {
             Leaderboards.RunningLeaderboard.UploadNewEntry(_playerUsernameInput.text, _playerScore, Callback, ErrorCallback);

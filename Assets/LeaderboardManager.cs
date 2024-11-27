@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Dan.Demo;
 using UnityEngine;
 using TMPro;
 using Dan.Main;
+using UnityEngine.SceneManagement;
 public class LeaderboardManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text[] _entryTextObjects;
@@ -12,14 +14,17 @@ public class LeaderboardManager : MonoBehaviour
 // ------------------------------------------------------------
    // [SerializeField] private ScoreManager _scoreManager;
         
-    private int Score => ScoreManager.score;
+    private int Score => LeaderboardShowcase._playerScore;
 // ------------------------------------------------------------
-
+    public void Loadl()
+    {
+        SceneManager.LoadScene("BaseTest");
+    }
     private void Start()
     {
         LoadEntries();
     }
-
+    
     private void LoadEntries()
     {
         // Q: How do I reference my own leaderboard?
