@@ -7,13 +7,13 @@ public class Scene : MonoBehaviour
 {
    
     public Button myButton;
-    private int i = 0;
-    void UninterCon()
+     public  static  int revive= 0;
+    public void UninterCon()
     {
-        if (i == 0)
+        if (revive == 0)
         {
             myButton.interactable = false; // ทำให้ปุ่มสามารถโต้ตอบได้
-            i++;
+            revive--;
         }
      
     }
@@ -24,7 +24,7 @@ public class Scene : MonoBehaviour
 
     void Start()
     {
-          i = 0;
+        revive = 0;
     }
     public void Restart()
     {

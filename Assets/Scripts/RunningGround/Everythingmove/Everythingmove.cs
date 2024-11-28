@@ -6,7 +6,7 @@ public class Everythingmove : MonoBehaviour
 {
     private float speed = 5f; // ความเร็วในการเคลื่อนที่ของฉากหลัง
     [SerializeField] protected Character character ;
-        
+    [SerializeField] protected SoundEffePlayer soundEffePlayer ;
     void Start()
     {
         // หา GameObject ชื่อ Player
@@ -33,11 +33,31 @@ public class Everythingmove : MonoBehaviour
         {
             // กำหนด Component Character ให้กับตัวแปร character
             character = player.GetComponent<Character>();
-            Debug.Log("พบ GameObject ชื่อ Player");
+           
         }
         else
         {
-            Debug.LogError("ไม่พบ GameObject ชื่อ Player");
+            
         }
+        GameObject sound = GameObject.FindGameObjectWithTag("Sound");;
+        // ตรวจสอบว่าพบ GameObject หรือไม่
+        if (sound != null)
+        {
+            // กำหนด Component Character ให้กับตัวแปร character
+            soundEffePlayer = sound.GetComponent<SoundEffePlayer>();
+           
+        }
+        else
+        {
+            
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Dead"))
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

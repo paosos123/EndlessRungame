@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Moving
+  - Dead
+  - Sound
   layers:
   - Default
   - TransparentFX

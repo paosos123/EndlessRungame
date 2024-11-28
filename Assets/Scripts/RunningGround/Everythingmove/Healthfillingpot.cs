@@ -5,8 +5,9 @@ using UnityEngine.EventSystems;
 
 public class Healthfillingpot : Everythingmove
 {
-    [SerializeField]private int healingPoints = 20;
-   
+    
+  public static int HealthfillingpotIncrese = 0;
+  private int healingPoints = 20+ HealthfillingpotIncrese;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,10 @@ public class Healthfillingpot : Everythingmove
         if (other.gameObject.CompareTag("Player"))
         {
             Heal(healingPoints);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Dead"))
+        {
             Destroy(gameObject);
         }
     }

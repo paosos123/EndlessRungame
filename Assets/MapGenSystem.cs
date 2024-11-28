@@ -6,6 +6,8 @@ using UnityEngine;
 public class MapGenSystem : MonoBehaviour
 {
     [SerializeField]List<GameObject> listMap1 = new List<GameObject>();
+    [SerializeField] private GameObject listMapHealth;
+    [SerializeField] private GameObject AugmentMap;
     [SerializeField]private List<GameObject> randomList = new List<GameObject>();
     public float spawnInterval = 4.5f;
     float timer = 0f;
@@ -55,18 +57,18 @@ public class MapGenSystem : MonoBehaviour
         
         if (timer >= spawnInterval)
         {
-            if (i !=3 && i !=15)
+            if (i !=3 && i !=15 && i !=5)
             {
                 Instantiate(randomList[0], position, Quaternion.identity);
                 randomList = GetRandomElements(listMap1, 1);
             }
             else if (i == 3)
             {
-                Instantiate(randomList[0], position, Quaternion.identity);
+                Instantiate(AugmentMap, position, Quaternion.identity);
             }
-            else if(i == 15)
+            else if(i == 15&&i==5)
             {
-                Instantiate(randomList[0], position, Quaternion.identity);
+                Instantiate(listMapHealth, position, Quaternion.identity);
                 i = 0;
             }
             i++;

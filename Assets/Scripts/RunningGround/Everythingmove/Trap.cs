@@ -24,9 +24,14 @@ public class Trap : Everythingmove
         if (other.gameObject.CompareTag("Player"))
         {
             Damage(damages);
+            soundEffePlayer.DamageSound();
             Destroy(gameObject);
         }
-        
+        if (other.gameObject.CompareTag("Dead"))
+        { 
+            Destroy(gameObject);
+        }
+    
     }
     public void Damage(float damagePoints)
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Dan.Demo;
 public class Augments :  Everythingmove
 {
     
@@ -32,9 +33,12 @@ public class Augments :  Everythingmove
         }
     }
    private List<int> randomList = new List<int>();
+   public float countdownTime = 30.0f;
+   private float currentTime;
     // Start is called before the first frame update
     void Start()
     {
+        currentTime = countdownTime;
         FindPlayer();
         randomList = GetUniqueRandomElements(listAugment, 3);
         OnClick(0,randomList[0]);
@@ -44,14 +48,19 @@ public class Augments :  Everythingmove
     // Update is called once per frame
     void Update()
     {
+        currentTime -= Time.deltaTime;
+        if (currentTime <= 0)
+        {
+            Move();
+        }
        
-        Move();
         
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Work");
             augmentsScreen.SetActive(true);
             foreach (GameObject gameObject in listSelectUI)
             {
@@ -67,8 +76,12 @@ public class Augments :  Everythingmove
             }
            
         }
+        if (other.gameObject.CompareTag("Dead"))
+        {
+            Destroy(gameObject);
+        }
     }
-
+   
     void OnClick(int UI,int io)
     {
         myButton[UI].onClick.AddListener(() =>
@@ -77,21 +90,26 @@ public class Augments :  Everythingmove
             {
                 case 0:
                     Debug.Log(1);
+                    character.health += 50;
                     break;
                 case 1:
-                    
                     Debug.Log(2);
+                    LeaderboardShowcase._playerScore+=1000;
                     break;
                 case 2:
                     Debug.Log(3);
-                    
+                    Scene.revive += 1;
                     break;
                 case 3:
                     Debug.Log(4);
-                    
+                    CoinSystem.totalCoin += 50;
+                    CoinCounter.currentCoin += 50;
+                    break;
+                case 4:
+                    Debug.Log(5);
+                    character.maxHealth += 50;
                     break;
                 default:
-                    // Code for values of i not explicitly handled
                     break;
             }
             augmentsScreen.SetActive(false);

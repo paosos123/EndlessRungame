@@ -21,8 +21,12 @@ public class CoinPerfab : Everythingmove
         {
             CoinSystem.totalCoin += 1;
             CoinCounter.instance.IncreaseCoins();
+            soundEffePlayer.CoinSound();
             Destroy(gameObject);
         }
-        
+        if (other.gameObject.CompareTag("Dead"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

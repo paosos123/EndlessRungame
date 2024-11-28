@@ -18,6 +18,8 @@ public class CameraMover : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        int i = 1;
+        Time.timeScale = 1;
     }
 
     void Update()
@@ -30,17 +32,20 @@ public class CameraMover : MonoBehaviour
         {
             i = 2;
         }
+        
     }
     public void MoveToTargetLeft()
     {    
         i--;
         StartCoroutine(SmoothMove(targetPosition[i]));
+        
     }
 
     public void MoveToTargetRight()
     {
         i++;
         StartCoroutine(SmoothMove(targetPosition[i]));
+       
     }
    
     
@@ -64,7 +69,9 @@ public class CameraMover : MonoBehaviour
             buttonLeft.interactable = true;
             buttonRight.interactable = true;
             mainCamera.transform.position = new Vector3(targetPosition.x, targetPosition.y, mainCamera.transform.position.z);
+            
         }
+        
        
     }
 }

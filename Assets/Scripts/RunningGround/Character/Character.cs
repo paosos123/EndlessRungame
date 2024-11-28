@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     //Input Action
+    private SoundEffePlayer _soundEffePlayer;
+    public Animator animator;
+    public BoxCollider2D  boxCollider2D;
     [Header("Input Action")] 
     private InputAction jumpActions;
     private PlayerInput playerInput;
@@ -20,10 +23,10 @@ public class Character : MonoBehaviour
     private int maxJumpCount = 2;
     [Header("Health")]
     //Health
-    [SerializeField] private float damagePerSecond = 10f;
+     private float damagePerSecond = 1f;
     
     [SerializeField] private Image healthBar;
-    public  static float upgradeHealth = 0;
+    public  static int upgradeHealth = 0;
     public float health, maxHealth = 100   ;
     [Header("GamePause")]
     // Start is called before the first frame update
@@ -55,12 +58,19 @@ public class Character : MonoBehaviour
             Jump();
             Slide();
            
-            //TakeDamageEverySecond();
+            TakeDamageEverySecond();
         }
         Gravity();
         HealthGreatermoreOrLessthanMaxHealth();
         HealthBarFiller();
-       
+        if (groundCheck ==false)
+        {
+            animator.SetBool("IsJump",true);
+        }
+        else
+        {
+            animator.SetBool("IsJump",false);
+        }
     }
     
     
@@ -76,6 +86,7 @@ public class Character : MonoBehaviour
         }
         if (jumpActions.phase == InputActionPhase.Performed&& jumpCount > 0)
         {
+           
             holdTime += Time.deltaTime;
         }
         if (jumpActions.phase == InputActionPhase.Canceled&& jumpCount > 0)
@@ -83,22 +94,34 @@ public class Character : MonoBehaviour
             float adjustedJumpForce = jumpForce * Mathf.Clamp01(holdTime / maxHoldTime);
             rb.velocity = new Vector2(rb.velocity.x, adjustedJumpForce);
             holdTime = 0f;
-               
+            
         }
     }
-    
-    
 
-   
+    public void OnLanding()
+    {
+        animator.SetBool("IsJump",false);
+    }
     void Slide()
     {
         if (playerInput.actions["Slide"].IsPressed())
         {
-            Debug.Log("Silder");
+            animator.SetBool("IsSider",true);
             if (!groundCheck)
             {
                 rb.AddForce(Vector2.down * 4, ForceMode2D.Impulse);
             }
+            else if (groundCheck)
+            {
+                boxCollider2D.size = new Vector2(0.7015362f, 0.6549721f); // Example: Change the size
+                boxCollider2D.offset = new Vector2(-0.004214764f, -0.4511586f);
+            }
+        }
+        else if (!playerInput.actions["Slide"].IsPressed())
+        {
+            animator.SetBool("IsSider",false);
+            boxCollider2D.size = new Vector2(0.7015362f, 1.481634f); // Example: Change the size
+            boxCollider2D.offset = new Vector2(-0.004214764f, -0.03782761f);
         }
     }
 
@@ -108,8 +131,8 @@ public class Character : MonoBehaviour
         {
             groundCheck = true;
             jumpCount = 0;
-         
         }
+        
     }
 
     void OnCollisionExit2D(Collision2D other)
@@ -117,7 +140,6 @@ public class Character : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             groundCheck = false;
-            
         }
     }
 
@@ -161,7 +183,7 @@ public class Character : MonoBehaviour
     public void JumpingCount()
     {
         jumpCount++;
-        Debug.Log(jumpCount);
+     
     }
     public bool IsDead()
     {

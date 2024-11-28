@@ -21,8 +21,7 @@ public class GameRunningUIManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        SceneManager.LoadScene("DemoScene");
-        
+        SceneManager.LoadScene("BaseTest");
     }
     
 }
