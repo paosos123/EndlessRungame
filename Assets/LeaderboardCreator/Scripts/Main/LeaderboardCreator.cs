@@ -214,6 +214,7 @@ namespace Dan.Main
             
             if (string.IsNullOrEmpty(username))
             {
+                username = "You";
                 LogError("Username cannot be null or empty!");
                 return;
             }

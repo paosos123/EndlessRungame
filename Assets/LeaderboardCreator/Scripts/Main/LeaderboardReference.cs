@@ -5,15 +5,16 @@ namespace Dan.Main
 {
     public class LeaderboardReference
     {
+        private string username1 = "you";
         public string PublicKey { get; }
 
         public LeaderboardReference(string publicKey) => PublicKey = publicKey;
 
-        public void UploadNewEntry(string username, int score, Action<bool> callback = null, Action<string> errorCallback = null) => 
-            LeaderboardCreator.UploadNewEntry(PublicKey, username, score, callback, errorCallback);
+        public void UploadNewEntry(string username , int score, Action<bool> callback = null, Action<string> errorCallback = null) => 
+            LeaderboardCreator.UploadNewEntry(PublicKey, username1, score, callback, errorCallback);
         
         public void UploadNewEntry(string username, int score, string extraData, Action<bool> callback = null, Action<string> errorCallback = null) => 
-            LeaderboardCreator.UploadNewEntry(PublicKey, username, score, extraData, callback, errorCallback);
+            LeaderboardCreator.UploadNewEntry(PublicKey, username1, score, extraData, callback, errorCallback);
 
         public void GetEntries(Action<Entry[]> callback, Action<string> errorCallback = null) => 
             LeaderboardCreator.GetLeaderboard(PublicKey, callback, errorCallback);

@@ -127,7 +127,7 @@ public class UpgradeSys : MonoBehaviour
     {
         LvHealthMaxUp++;
         CoinSystem.totalCoin -= 5+Character.upgradeHealth;
-        HealthMaxUpneed += 5;
+        HealthMaxUpneed += 10;
         Character.upgradeHealth += 10;
         ChangeSprite(HealthMaxUp,sprites[0]);
         upgradeText[0].text = $"Lv {LvHealthMaxUp}";
@@ -137,8 +137,8 @@ public class UpgradeSys : MonoBehaviour
     public void UpgradeMeatMaxUpUI()
     {
         LvMeatMaxUp++;
-        CoinSystem.totalCoin -= 5+Healthfillingpot.HealthfillingpotIncrese;
-        HealthMaxUpneed += 5;
+        CoinSystem.totalCoin -= 5+Healthfillingpot.HealthfillingpotIncrese; 
+        MeatMaxUpneed += 10;
         Healthfillingpot.HealthfillingpotIncrese += 10;
         ChangeSprite(MeatMaxUp,sprites[1]);
         upgradeText[3].text = $"Lv {LvMeatMaxUp}";
