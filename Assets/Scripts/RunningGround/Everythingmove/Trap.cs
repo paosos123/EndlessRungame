@@ -6,7 +6,7 @@ public class Trap : Everythingmove
 {
     [SerializeField]private int damages = 20;
      // Reference to the red panel Image component
-    public float damageDuration = 1f; 
+    public float damageDuration = 0.1f; 
    
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class Trap : Everythingmove
             character.damagePanel.gameObject.SetActive(true);
             // Start a coroutine to deactivate the panel after 2 seconds
             StartCoroutine(FadeOutPanel());
-            Destroy(gameObject);
+           
            
         }
         if (other.gameObject.CompareTag("Dead"))
@@ -47,5 +47,6 @@ public class Trap : Everythingmove
     {
         yield return new WaitForSeconds(damageDuration);
         character.damagePanel.gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
