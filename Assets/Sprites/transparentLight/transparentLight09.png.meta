@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      transparentLight09_0: 7155102952271334052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

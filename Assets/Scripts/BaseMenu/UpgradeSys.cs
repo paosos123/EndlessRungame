@@ -6,7 +6,7 @@ using TMPro;
 
 public class UpgradeSys : MonoBehaviour
 {
-    [SerializeField] private GameObject HealthMaxUp;
+     [SerializeField] private  GameObject HealthMaxUp;
     [SerializeField] private GameObject HealthMaxUpUI;
     
     [SerializeField] private Button HealthMaxUpUIButton;
@@ -14,7 +14,7 @@ public class UpgradeSys : MonoBehaviour
     private int LvHealthMaxUp=0;
     
     public Sprite[] sprites;
-    [SerializeField] private GameObject MeatMaxUp;
+    [SerializeField] private  GameObject MeatMaxUp;
     [SerializeField] private GameObject MeatMaxUpUI;
     [SerializeField] private Button MeatUIButton;
     private int LvMeatMaxUp=0;
@@ -24,11 +24,21 @@ public class UpgradeSys : MonoBehaviour
     [SerializeField] private GameObject RockMaxUpUI;
     private int HealthMaxUpneed = 5;
     private int MeatMaxUpneed = 5;
+    static  int  po,oo =0;
     // Start is called before the first frame update
     void Start()
     {
         CoinSystem.totalCoin = 20;
-        
+        if (oo == 1)
+        {
+            ChangeSprite(MeatMaxUp,sprites[1]);
+        }
+
+        if (po == 1)
+        {
+            ChangeSprite(HealthMaxUp,sprites[0]);
+           
+        }
     }
 
     // Update is called once per frame
@@ -71,7 +81,9 @@ public class UpgradeSys : MonoBehaviour
            {
                RockMaxUpUI.SetActive(true);
            }
-          
+
+           
+           
        }
        /* if (Input.touchCount > 0)
       {
@@ -130,6 +142,7 @@ public class UpgradeSys : MonoBehaviour
         HealthMaxUpneed += 10;
         Character.upgradeHealth += 10;
         ChangeSprite(HealthMaxUp,sprites[0]);
+        po = 1;
         upgradeText[0].text = $"Lv {LvHealthMaxUp}";
         upgradeText[1].text = $"Need {5+Character.upgradeHealth} Coins";
         upgradeText[2].text = $"MaxHealth {100+Character.upgradeHealth} to {110+Character.upgradeHealth} ";
@@ -141,6 +154,7 @@ public class UpgradeSys : MonoBehaviour
         MeatMaxUpneed += 10;
         Healthfillingpot.HealthfillingpotIncrese += 10;
         ChangeSprite(MeatMaxUp,sprites[1]);
+        oo = 1;
         upgradeText[3].text = $"Lv {LvMeatMaxUp}";
         upgradeText[4].text = $"Need {5+Healthfillingpot.HealthfillingpotIncrese} Coins";
         upgradeText[5].text = $"MaxHealth {20+Healthfillingpot.HealthfillingpotIncrese} to {30+Healthfillingpot.HealthfillingpotIncrese} ";

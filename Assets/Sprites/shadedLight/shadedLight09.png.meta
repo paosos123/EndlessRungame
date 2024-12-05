@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shadedLight09_0: 5411740485238131675
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -36,6 +36,7 @@ public class Character : MonoBehaviour
     [SerializeField] private float baseGravity = 2;
     [SerializeField] private float maxFallSpeed = 18f;
     [SerializeField] private float fallSpeedMultiplier = 2f;
+    [SerializeField] public  GameObject damagePanel; // Reference to the red panel Image component
     
 
 
@@ -113,8 +114,8 @@ public class Character : MonoBehaviour
             }
             else if (groundCheck)
             {
-                boxCollider2D.size = new Vector2(0.7015362f, 0.6549721f); // Example: Change the size
-                boxCollider2D.offset = new Vector2(-0.004214764f, -0.4511586f);
+                boxCollider2D.size = new Vector2(0.7015362f, 0.4877353f); // Example: Change the size
+                boxCollider2D.offset = new Vector2(-0.004214764f, -0.534777f);
             }
         }
         else if (!playerInput.actions["Slide"].IsPressed())

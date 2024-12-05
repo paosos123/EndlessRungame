@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      transparentDark47_0: 964215981643493800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

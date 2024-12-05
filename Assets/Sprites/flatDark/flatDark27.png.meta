@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      flatDark27_0: 3525821920433317129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
